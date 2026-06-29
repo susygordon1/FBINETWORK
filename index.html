@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FBI — Faith. Business. Impact.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Georgia:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0D1B2A;
+      --navy-mid: #162336;
+      --parchment: #E8DCC8;
+      --gold: #C9A84C;
+      --red: #B22222;
+      --white: #FFFFFF;
+      --mono: 'Courier New', Courier, monospace;
+    }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: Georgia, serif;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2.5rem;
+      border-bottom: 1px solid rgba(201,168,76,0.25);
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+    }
+    .nav-logo span {
+      color: var(--white);
+      opacity: 0.5;
+      font-size: 0.75rem;
+      display: block;
+      letter-spacing: 0.2em;
+      font-family: var(--mono);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--parchment);
+      text-decoration: none;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 40%, rgba(201,168,76,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* DOSSIER CARD */
+    .dossier {
+      background: var(--parchment);
+      color: var(--navy);
+      max-width: 680px;
+      width: 100%;
+      padding: 3rem 3.5rem;
+      position: relative;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(0,0,0,0.1);
+    }
+    .dossier::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: var(--red);
+    }
+    .dossier-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(13,27,42,0.2);
+    }
+    .dossier-badge {
+      display: flex;
+      flex-direction: column;
+    }
+    .dossier-classified {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--red);
+      font-weight: bold;
+      margin-bottom: 0.25rem;
+    }
+    .dossier-agency {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      line-height: 1;
+      color: var(--navy);
+      letter-spacing: 0.05em;
+    }
+    .dossier-agency-sub {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: rgba(13,27,42,0.5);
+      text-transform: uppercase;
+      margin-top: 0.15rem;
+    }
+    .dossier-seal {
+      width: 72px;
+      height: 72px;
+      border: 2px solid var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      opacity: 0.15;
+    }
+    .dossier-seal-text {
+      font-family: var(--mono);
+      font-size: 0.45rem;
+      letter-spacing: 0.12em;
+      text-align: center;
+      text-transform: uppercase;
+      line-height: 1.4;
+    }
+
+    .dossier-case {
+      margin-bottom: 1.75rem;
+    }
+    .dossier-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(13,27,42,0.45);
+      margin-bottom: 0.35rem;
+    }
+    .dossier-tagline {
+      font-family: Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: bold;
+      line-height: 1.3;
+      color: var(--navy);
+    }
+    .dossier-tagline em {
+      font-style: normal;
+      color: var(--red);
+    }
+
+    .dossier-body {
+      font-size: 0.95rem;
+      color: rgba(13,27,42,0.8);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    .dossier-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding: 1.25rem;
+      background: rgba(13,27,42,0.05);
+      border-left: 3px solid var(--gold);
+    }
+    .detail-item {}
+    .detail-label {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(13,27,42,0.4);
+      margin-bottom: 0.2rem;
+    }
+    .detail-value {
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: var(--navy);
+    }
+
+    .dossier-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--navy);
+      color: var(--gold);
+      padding: 0.85rem 2rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #1a2f47; }
+    .btn-secondary {
+      background: transparent;
+      color: var(--navy);
+      padding: 0.85rem 2rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(13,27,42,0.3);
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--navy); }
+
+    /* PILLARS */
+    .pillars {
+      padding: 5rem 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.75rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      margin-bottom: 3rem;
+    }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: rgba(201,168,76,0.15);
+    }
+    .pillar-card {
+      background: var(--navy-mid);
+      padding: 2.5rem 2rem;
+      position: relative;
+    }
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .pillar-card.faith::before { background: var(--gold); }
+    .pillar-card.business::before { background: var(--white); }
+    .pillar-card.impact::before { background: var(--red); }
+
+    .pillar-letter {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      line-height: 1;
+      opacity: 0.08;
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+    }
+    .pillar-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.75rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .pillar-desc {
+      font-size: 0.9rem;
+      color: rgba(232,220,200,0.75);
+      line-height: 1.7;
+    }
+
+    /* CULTURE */
+    .culture {
+      padding: 5rem 2.5rem;
+      border-top: 1px solid rgba(201,168,76,0.15);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      background: var(--navy-mid);
+    }
+    .culture-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .culture-quote {
+      font-size: 1.45rem;
+      font-style: italic;
+      color: var(--parchment);
+      line-height: 1.65;
+      margin-bottom: 2rem;
+      padding-left: 1.5rem;
+      border-left: 3px solid var(--gold);
+    }
+    .culture-body {
+      font-size: 0.95rem;
+      color: rgba(232,220,200,0.75);
+      line-height: 1.8;
+    }
+
+    /* MEETING STRUCTURE */
+    .structure {
+      padding: 5rem 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .structure-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .structure-block {
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 2.5rem;
+      position: relative;
+    }
+    .block-time {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .block-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.75rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+    .block-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .block-items li {
+      font-size: 0.9rem;
+      color: rgba(232,220,200,0.75);
+      padding-left: 1rem;
+      border-left: 2px solid rgba(201,168,76,0.3);
+      line-height: 1.5;
+    }
+    .block-items li strong {
+      color: var(--parchment);
+      display: block;
+      font-size: 0.8rem;
+      font-family: var(--mono);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+
+    /* MOST WANTED TEASER */
+    .wanted-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .wanted-card {
+      background: var(--navy-mid);
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 1.75rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .wanted-stamp {
+      position: absolute;
+      top: 1.1rem;
+      right: -1.5rem;
+      background: var(--red);
+      color: var(--white);
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      font-weight: bold;
+      letter-spacing: 0.25em;
+      padding: 0.25rem 2.5rem;
+      transform: rotate(20deg);
+      opacity: 0.9;
+    }
+    .wanted-photo {
+      width: 80px;
+      height: 90px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+    .wanted-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0,0,0,0.15) 3px,
+        rgba(0,0,0,0.15) 4px
+      );
+    }
+    .wanted-silhouette {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      color: rgba(201,168,76,0.2);
+    }
+    .wanted-topic-label {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+    .wanted-topic {
+      font-size: 0.95rem;
+      font-weight: bold;
+      color: var(--parchment);
+      line-height: 1.4;
+      margin-bottom: 0.75rem;
+    }
+    .wanted-meta {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: rgba(232,220,200,0.35);
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .wanted-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .wanted-grid { grid-template-columns: 1fr; }
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 3rem 2.5rem;
+      border-top: 1px solid rgba(201,168,76,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-brand {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(232,220,200,0.4);
+    }
+    .footer-brand a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    @media (max-width: 700px) {
+      .dossier { padding: 2rem 1.5rem; }
+      .dossier-agency { font-size: 2.5rem; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .structure-grid { grid-template-columns: 1fr; }
+      nav { flex-direction: column; gap: 1rem; align-items: flex-start; }
+      .dossier-details { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">
+      FBI
+      <span>Faith • Business • Impact</span>
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.2em;color:var(--white);opacity:1;font-size:0.85rem;">The FBI Network</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#structure">The Meeting</a></li>
+      <li><a href="#join">Join</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO: DOSSIER -->
+  <section class="hero" id="about">
+    <div class="dossier">
+      <div class="dossier-header">
+        <div class="dossier-badge">
+          <div class="dossier-classified">Case File — Open</div>
+          <div class="dossier-agency">FBI</div>
+          <div class="dossier-agency-sub">Faith • Business • Impact</div>
+        </div>
+        <div class="dossier-seal">
+          <div class="dossier-seal-text">Mega<br/>Mission<br/>Media</div>
+        </div>
+      </div>
+
+      <div class="dossier-case">
+        <div class="dossier-label">Mission Brief</div>
+        <div class="dossier-tagline">A covenant community for founders,<br/>entrepreneurs & people <em>in pivot.</em></div>
+      </div>
+
+      <p class="dossier-body">
+        There's a specific kind of loneliness that comes with building something. Church feeds your soul. Family loves you. But when you're in the middle of a pivot, bootstrapping a dream, or just trying to make payroll — you need people who get it. FBI is that room. We pray together. We fast together. We hold each other accountable to the goals we set the week before, and show up the next Monday to celebrate what moved.
+      </p>
+
+      <div class="dossier-details">
+        <div class="detail-item">
+          <div class="detail-label">Convenes</div>
+          <div class="detail-value">Every Monday, 9:00 AM</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Location</div>
+          <div class="detail-value">Location TBD</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Duration</div>
+          <div class="detail-value">One Hour</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Powered By</div>
+          <div class="detail-value">Mega Mission Media</div>
+        </div>
+      </div>
+
+      <div class="dossier-cta">
+        <a href="#join" class="btn-primary">Request Access</a>
+        <a href="#structure" class="btn-secondary">See the Meeting</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="pillars">
+    <div class="section-eyebrow">The Three Pillars</div>
+    <div class="section-title">What We Bring to the Table</div>
+    <div class="pillars-grid">
+      <div class="pillar-card faith">
+        <div class="pillar-letter">F</div>
+        <div class="pillar-name">Faith</div>
+        <p class="pillar-desc">Scripture. Prayer requests. Answered prayers. Encouragement. Share whatever you're carrying or whatever you've seen God do. This is knowledge sharing — bring anything faith has taught you.</p>
+      </div>
+      <div class="pillar-card business">
+        <div class="pillar-letter">B</div>
+        <div class="pillar-name">Business</div>
+        <p class="pillar-desc">Tools, wins, referrals, hard lessons. What are you using? What's working? What do you need? The table is open. We grow each other's businesses by sharing what we know.</p>
+      </div>
+      <div class="pillar-card impact">
+        <div class="pillar-letter">I</div>
+        <div class="pillar-name">Impact</div>
+        <p class="pillar-desc">One goal. One act. This week, you commit to making an impact in your community — and next Monday you report back. Buy someone's lunch. Give someone a ride. Show up for someone who needs it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CULTURE -->
+  <section class="culture">
+    <div class="culture-inner">
+      <div class="section-eyebrow">What Makes FBI Different</div>
+      <blockquote class="culture-quote">
+        "FBI is not a networking event. It's not a pitch room. There are no door prizes, no card shuffles, no pressure to sell."
+      </blockquote>
+      <p class="culture-body">
+        FBI is a covenant community — a group of founders, entrepreneurs, and leaders who show up accountable to one another, week over week. We pray for each other by name. We celebrate each other's wins out loud. And we actually listen when someone speaks.<br/><br/>
+        The format serves one thing: that every person in the room feels seen, heard, and supported — in their faith, in their business, and in their impact on the world around them. If you're looking for a room full of people who will show up for you the same way you show up for them — this is it.
+      </p>
+    </div>
+  </section>
+
+  <!-- MEETING STRUCTURE -->
+  <section class="structure" id="structure">
+    <div class="section-eyebrow">The Meeting</div>
+    <div class="section-title">One Hour. Two Blocks. Every Monday.</div>
+    <div class="structure-grid">
+      <div class="structure-block">
+        <div class="block-time">Minutes 0–30</div>
+        <div class="block-title">The Standup</div>
+        <ul class="block-items">
+          <li>
+            <strong>30-Second Commercial</strong>
+            Who are you and what do you do? Own it.
+          </li>
+          <li>
+            <strong>Faith</strong>
+            What are you bringing? Prayer need, scripture, something God showed you. Open table.
+          </li>
+          <li>
+            <strong>Business</strong>
+            Tools, wins, knowledge, referrals. What do you know that this room needs to hear?
+          </li>
+          <li>
+            <strong>Impact</strong>
+            Your one community goal for the week. Specific. Actionable. Report back next Monday.
+          </li>
+        </ul>
+      </div>
+      <div class="structure-block">
+        <div class="block-time">Minutes 30–60</div>
+        <div class="block-title">FBI's Most Wanted</div>
+        <ul class="block-items">
+          <li>
+            <strong>The Speaker</strong>
+            One subject matter expert. Thirty minutes. Lived experience only — no theory.
+          </li>
+          <li>
+            <strong>The Topic</strong>
+            Could be a business skill, a legal lesson learned, a tool that changed everything. Real and practical.
+          </li>
+          <li>
+            <strong>The Close</strong>
+            Every speaker closes with a scripture. Then passes the baton to next week's Most Wanted.
+          </li>
+          <li>
+            <strong>The Contribution</strong>
+            We pass the hat for the FBI cause. Kingdom-minded giving, no pressure.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOST WANTED TEASER -->
+  <section class="pillars">
+    <div class="section-eyebrow">Coming Up</div>
+    <div class="section-title">FBI's Most Wanted — Upcoming Topics</div>
+    <p style="color:rgba(232,220,200,0.6);font-size:0.9rem;margin-top:-2rem;margin-bottom:2.5rem;font-family:var(--mono);letter-spacing:0.05em;">Identities classified. Topics confirmed.</p>
+    <div class="wanted-grid">
+
+      <div class="wanted-card">
+        <div class="wanted-stamp">CLASSIFIED</div>
+        <div class="wanted-photo">
+          <div class="wanted-silhouette">?</div>
+        </div>
+        <div class="wanted-topic-label">Topic</div>
+        <div class="wanted-topic">How to Structure Your LLC for Real Protection</div>
+        <div class="wanted-meta">Legal & Compliance · Week TBD</div>
+      </div>
+
+      <div class="wanted-card">
+        <div class="wanted-stamp">CLASSIFIED</div>
+        <div class="wanted-photo">
+          <div class="wanted-silhouette">?</div>
+        </div>
+        <div class="wanted-topic-label">Topic</div>
+        <div class="wanted-topic">Building a Website That Actually Converts</div>
+        <div class="wanted-meta">Digital & Marketing · Week TBD</div>
+      </div>
+
+      <div class="wanted-card">
+        <div class="wanted-stamp">CLASSIFIED</div>
+        <div class="wanted-photo">
+          <div class="wanted-silhouette">?</div>
+        </div>
+        <div class="wanted-topic-label">Topic</div>
+        <div class="wanted-topic">Using AI to Run a Leaner Business</div>
+        <div class="wanted-meta">Technology · Week TBD</div>
+      </div>
+
+      <div class="wanted-card">
+        <div class="wanted-stamp">CLASSIFIED</div>
+        <div class="wanted-photo">
+          <div class="wanted-silhouette">?</div>
+        </div>
+        <div class="wanted-topic-label">Topic</div>
+        <div class="wanted-topic">Funding Options Every Entrepreneur Should Know</div>
+        <div class="wanted-meta">Finance & Capital · Week TBD</div>
+      </div>
+
+      <div class="wanted-card">
+        <div class="wanted-stamp">CLASSIFIED</div>
+        <div class="wanted-photo">
+          <div class="wanted-silhouette">?</div>
+        </div>
+        <div class="wanted-topic-label">Topic</div>
+        <div class="wanted-topic">Faith in the Marketplace — Living It Out Loud</div>
+        <div class="wanted-meta">Faith & Business · Week TBD</div>
+      </div>
+
+      <div class="wanted-card">
+        <div class="wanted-stamp">CLASSIFIED</div>
+        <div class="wanted-photo">
+          <div class="wanted-silhouette">?</div>
+        </div>
+        <div class="wanted-topic-label">Topic</div>
+        <div class="wanted-topic">The Pivot — How I Rebuilt After Losing Everything</div>
+        <div class="wanted-meta">Resilience & Mindset · Week TBD</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- JOIN -->
+  <section class="culture" id="join" style="text-align:center;">
+    <div class="culture-inner" style="text-align:center;">
+      <div class="section-eyebrow">Get on the List</div>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:0.05em;color:var(--white);margin-bottom:1rem;">Ready to Join the Mission?</h2>
+      <p class="culture-body" style="margin-bottom:2rem;max-width:520px;margin-left:auto;margin-right:auto;">
+        FBI meets every Monday at 9:00 AM. Location TBD — check back here for updates.
+      </p>
+      <a href="mailto:susie@megamissionmedia.com" class="btn-primary" style="display:inline-block;">Request Your Seat</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-brand">
+      FBI — Faith • Business • Impact &nbsp;|&nbsp; Powered by <a href="#">Mega Mission Media</a>
+    </div>
+    <div class="footer-brand">
+      Every Monday • 9:00 AM • Location TBD
+    </div>
+  </footer>
+
+</body>
+</html>
