@@ -239,6 +239,10 @@
       align-items: start;
     }
     .combo-col { display: flex; flex-direction: column; }
+    .combo-col-right {
+      border-left: 1px solid rgba(13,27,42,0.15);
+      padding-left: 2.5rem;
+    }
     .pillars-stack {
       display: flex;
       flex-direction: column;
@@ -255,6 +259,7 @@
     }
     @media (max-width: 900px) {
       .combo-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .combo-col-right { border-left: none; padding-left: 0; border-top: 1px solid rgba(13,27,42,0.15); padding-top: 1.5rem; }
     }
 
     /* CULTURE */
@@ -595,7 +600,7 @@
   <!-- HERO — navy -->
   <section class="hero" id="about">
     <div class="hero-inner">
-      <img src="fbi-logo.png" alt="The FBI Network" style="width:120px;height:120px;border-radius:14px;display:block;margin:0 auto 1.75rem;box-shadow:0 8px 30px rgba(0,0,0,0.35);" />
+      <img src="fbi-logo.png" alt="The FBI Network" style="width:190px;height:190px;border-radius:18px;display:block;margin:0 auto 1.75rem;box-shadow:0 10px 36px rgba(0,0,0,0.4);" />
       <div class="hero-tagline">A covenant community for founders,<br/>entrepreneurs &amp; people <em>in pivot.</em></div>
       <p class="hero-body">
         There's a specific kind of loneliness that comes with building something. Church feeds your soul. Family loves you. But when you're in the middle of a pivot, bootstrapping a dream, or just trying to make payroll — you need people who get it. The FBI Network is that room. We pray together. We fast together. We hold each other accountable, and show up the next Monday to celebrate what moved.
@@ -611,7 +616,10 @@
         </div>
         <div class="detail-item">
           <div class="detail-label">Location</div>
-          <div class="detail-value">Accelerate Fort Worth<br/>1150 South Fwy #600, Suite 124<br/>Fort Worth, TX 76104</div>
+          <div class="detail-value" style="display:flex;align-items:center;gap:0.75rem;">
+            <img src="accelerate-logo.png" alt="Accelerate Fort Worth Foundation" style="height:34px;width:auto;background:#fff;border-radius:6px;padding:3px 6px;" />
+            <span>Accelerate Fort Worth<br/>1150 South Fwy #600, Suite 124<br/>Fort Worth, TX 76104</span>
+          </div>
         </div>
       </div>
     </div>
@@ -678,16 +686,15 @@
             </div>
           </div>
         </div>
-        <div class="combo-col">
+        <div class="combo-col combo-col-right">
           <div class="section-eyebrow">What Makes FBI Different</div>
-          <div class="section-title" style="visibility:hidden;height:0;margin:0;">.</div>
+          <div class="section-title">Show Up Monday and Find Out.</div>
           <div class="culture-card culture-card-tall">
             <div class="culture-quote">Every person in this room is seen, supported, and held to something greater.</div>
             <p class="culture-body">
               We are founders, entrepreneurs, and builders who show up for each other week over week. We bring our faith, our hustle, and our commitment to impact — and we hold each other accountable to the goals we set the week before.<br/><br/>
               We are individually building our own businesses, but together we are making an impact on our community, our city, and beyond.
             </p>
-            <div class="culture-kicker">What makes us different? Show up Monday and find out.</div>
           </div>
         </div>
       </div>
