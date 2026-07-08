@@ -516,8 +516,8 @@
     .launch-thanks {
       text-align: center;
       margin-top: 3rem;
-      padding-top: 2.5rem;
-      border-top: 1px solid rgba(13,27,42,0.15);
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(13,27,42,0.15);
     }
     .launch-thanks-text {
       font-family: 'Bebas Neue', sans-serif;
@@ -528,9 +528,10 @@
       max-width: 780px;
       margin: 0 auto;
     }
-    .launch-thanks-text .accent { color: var(--red); }
+    .launch-thanks-text .accent { color: var(--red); white-space: nowrap; }
     @media (max-width: 700px) {
       .launch-thanks-text { font-size: 1.6rem; }
+      .launch-thanks-text .accent { white-space: normal; }
     }
 
     @media (max-width: 900px) {
@@ -600,7 +601,7 @@
   <!-- HERO — navy -->
   <section class="hero" id="about">
     <div class="hero-inner">
-      <img src="fbi-logo.png" alt="The FBI Network" style="width:190px;height:190px;border-radius:18px;display:block;margin:0 auto 1.75rem;box-shadow:0 10px 36px rgba(0,0,0,0.4);" />
+      <img src="fbi-logo.png" alt="The FBI Network" style="width:320px;height:320px;max-width:80%;border-radius:24px;display:block;margin:0 auto 2rem;box-shadow:0 14px 44px rgba(0,0,0,0.45);" />
       <div class="hero-tagline">A covenant community for founders,<br/>entrepreneurs &amp; people <em>in pivot.</em></div>
       <p class="hero-body">
         There's a specific kind of loneliness that comes with building something. Church feeds your soul. Family loves you. But when you're in the middle of a pivot, bootstrapping a dream, or just trying to make payroll — you need people who get it. The FBI Network is that room. We pray together. We fast together. We hold each other accountable, and show up the next Monday to celebrate what moved.
@@ -656,7 +657,7 @@
       </div>
 
       <div class="launch-thanks">
-        <div class="launch-thanks-text">Thank you to all the Change Agents who showed up — and to those who couldn't make it this time. <span class="accent">No worries. We'll see you next Monday.</span></div>
+        <div class="launch-thanks-text">Thank you to all the Change Agents who showed up — and to those who couldn't make it this time.<br/><span class="accent">No worries. We'll see you next Monday.</span></div>
       </div>
     </div>
   </section>
